@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "subpixelascii"
+version = "0.1.0"
+description = "Convert images to Unicode text art by perceptually matching every glyph of GNU Unifont against the image, pixel for pixel."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "Pillow>=10.1",
+    "fonttools>=4.40",
+    "unicodedata2>=15.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+subpixelascii = "subpixelascii.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
